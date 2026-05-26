@@ -1,4 +1,15 @@
 package com.pluralsight.models.toppings;
 
-public class Side {
+import com.pluralsight.enums.SandwichSize;
+
+public class Side extends Topping{
+
+    public Side(String name) {
+        super(name);
+    }
+
+    @Override
+    public double getPrice(SandwichSize sandwichSize) {
+        return 0;
+    }
 }
