@@ -1,8 +1,11 @@
 package com.pluralsight.ui;
 
 import com.pluralsight.enums.BreadType;
+import com.pluralsight.enums.MeatType;
+import com.pluralsight.enums.SandwichSize;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
+import com.pluralsight.models.toppings.Meat;
 
 import java.util.Scanner;
 
@@ -66,6 +69,35 @@ public class UserInterface {
 
     public Sandwich processAddSandwich() {}
 
+    public SandwichSize selectSandwichSize() {
+        while (true) {
+            System.out.println("\n=== Bread Type ===");
+            System.out.println("1. 4 Inch");
+            System.out.println("2. 8 Inch");
+            System.out.println("3. 12 Inch");
+            System.out.println("0. Go Back");
+
+            int choice = readInt("Please select your bread type: ");
+
+            switch (choice) {
+                case 1 -> {
+                    return SandwichSize.FOUR;
+                }
+                case 2 -> {
+                    return SandwichSize.EIGHT;
+                }
+                case 3 -> {
+                    return SandwichSize.TWELVE;
+                }
+                case 0 -> {
+                    System.out.println("Going back to Sandwich Maker");
+                    return null;
+                }
+                default -> System.out.println("Invalid Choice");
+            }
+        }
+    }
+
     public BreadType selectBreadType() {
         while (true) {
             System.out.println("\n=== Bread Type ===");
@@ -89,6 +121,47 @@ public class UserInterface {
                 }
                 case 4 -> {
                     return BreadType.WRAP;
+                }
+                case 0 -> {
+                    System.out.println("Going back to Sandwich Maker");
+                    return null;
+                }
+                default -> System.out.println("Invalid Choice");
+            }
+        }
+    }
+
+    public MeatType selectMeat() {
+        while (true) {
+            System.out.println("\n=== Meat Selection ===");
+            System.out.println("1. Steak");
+            System.out.println("2. Ham");
+            System.out.println("3. Salami");
+            System.out.println("4. Roast Beef");
+            System.out.println("5. Chicken");
+            System.out.println("6. Bacon");
+            System.out.println("0. Go Back");
+
+            int choice = readInt("Select your meat: ");
+
+            switch (choice) {
+                case 1 -> {
+                    return MeatType.STEAK;
+                }
+                case 2 -> {
+                    return MeatType.HAM;
+                }
+                case 3 -> {
+                    return MeatType.SALAMI;
+                }
+                case 4 -> {
+                    return MeatType.ROAST_BEEF;
+                }
+                case 5 -> {
+                    return MeatType.CHICKEN;
+                }
+                case 6 -> {
+                    return MeatType.BACON;
                 }
                 case 0 -> {
                     System.out.println("Going back to Sandwich Maker");
