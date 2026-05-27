@@ -382,14 +382,21 @@ public class UserInterface {
     }
 
     private void toastSandwich(Sandwich sandwich) {
-        System.out.println("\n=== Toast Sandwich ===");
-        System.out.println("1. Yes");
-        System.out.println("2. No");
+        while (true) {
+            System.out.println("\n=== Toast Sandwich ===");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
 
-        int choice = readInt("Would you like the bread toasted?: ");
+            int choice = readInt("Would you like the bread toasted?: ");
 
-        if (choice == 1) {
-            sandwich.setToasted(true);
+            switch (choice) {
+                case 1 -> {
+                    sandwich.setToasted(true);
+                    return;
+                }
+                case 2 -> {return;}
+                default -> System.out.println("Invalid Input");
+            }
         }
     }
 
