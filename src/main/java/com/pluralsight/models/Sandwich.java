@@ -48,8 +48,8 @@ public class Sandwich implements IPriceable{
             if (alreadyExists) {
                 premiumTopping.setExtra(true);
             }
-            toppings.add(topping);
         }
+        toppings.add(topping);
     }
 
     public double getPrice() {
@@ -64,5 +64,15 @@ public class Sandwich implements IPriceable{
                 .sum();
 
         return breadPrice + toppingPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "breadType=" + breadType +
+                ", sandwhichSize=" + sandwhichSize +
+                ", isToasted=" + isToasted +
+                ", toppings=" + toppings +
+                '}';
     }
 }

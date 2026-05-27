@@ -3,6 +3,7 @@ package com.pluralsight.ui;
 import com.pluralsight.enums.*;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
+import com.pluralsight.models.toppings.*;
 
 import java.util.Scanner;
 
@@ -39,8 +40,11 @@ public class UserInterface {
     }
 
     public void displayOrderScreen() {
+
+
         boolean running = true;
         while (running) {
+            System.out.println(order);
             System.out.println("\n=== Order ===");
             System.out.println("1. Add Sandwich");
             System.out.println("2. Add Drink");
@@ -48,10 +52,13 @@ public class UserInterface {
             System.out.println("4. Checkout");
             System.out.println("0. Cancel Order");
 
-            int choice = readInt("Enter your choice");
+            int choice = readInt("Enter your choice: ");
 
             switch (choice) {
-                case 1 -> System.out.println("Add Sandwich");
+                case 1 -> {
+                    Sandwich sandwich = processAddSandwich();
+                    order.addItem(sandwich);
+                }
                 case 2 -> System.out.println("Add Drink");
                 case 3 -> System.out.println("Add Chips");
                 case 4 -> System.out.println("Checkout");
@@ -65,7 +72,30 @@ public class UserInterface {
     }
 
     public Sandwich processAddSandwich() {
+        BreadType breadType = selectBreadType();
 
+        SandwichSize sandwichSize = selectSandwichSize();
+
+        Sandwich sandwich = new Sandwich(breadType, sandwichSize);
+
+        MeatType meatType = selectMeat();
+        sandwich.addTopping(new Meat(meatType));
+
+        CheeseType cheeseType = selectCheese();
+        sandwich.addTopping(new Cheese(cheeseType));
+
+        RegularToppingType toppingType = selectRegularToppings();
+        sandwich.addTopping(new RegularTopping(toppingType));
+
+        SauceType sauceType = selectSauce();
+        sandwich.addTopping(new Sauce(sauceType));
+
+        SideType sideType = selectSide();
+        sandwich.addTopping(new Side(sideType));
+
+        toastSandwich(sandwich);
+
+        return sandwich;
     }
 
     public BreadType selectBreadType() {
