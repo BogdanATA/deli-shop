@@ -6,7 +6,9 @@ import com.pluralsight.models.Drink;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
 import com.pluralsight.models.toppings.*;
+import com.pluralsight.services.FileManager;
 
+import java.io.File;
 import java.util.Scanner;
 
 
@@ -501,6 +503,7 @@ public class UserInterface {
 
         switch (choice) {
             case 1 -> {
+                FileManager.saveReceipt(order);
                 System.out.println("Order confirmed! Receipt saved.");
             }
             case 0 -> System.out.println("Order cancelled.");
