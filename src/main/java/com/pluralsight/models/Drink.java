@@ -1,4 +1,32 @@
 package com.pluralsight.models;
 
-public class Drink {
+import com.pluralsight.enums.DrinkFlavor;
+import com.pluralsight.enums.DrinkSize;
+
+public class Drink implements IPriceable{
+    private DrinkFlavor flavor;
+    private DrinkSize drinkSize;
+
+    public Drink(DrinkFlavor flavor, DrinkSize drinkSize) {
+        this.flavor = flavor;
+        this.drinkSize = drinkSize;
+    }
+
+    public DrinkFlavor getFlavor() {
+        return flavor;
+    }
+
+    public DrinkSize getDrinkSize() {
+        return drinkSize;
+    }
+
+    public double getPrice() {
+        double drinkCost = 0;
+        switch (drinkSize) {
+            case SMALL -> drinkCost = 2.00;
+            case MEDIUM -> drinkCost = 2.50;
+            case LARGE -> drinkCost = 3.00;
+        }
+        return drinkCost;
+    }
 }

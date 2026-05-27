@@ -39,7 +39,7 @@ public class UserInterface {
         }
     }
 
-    public void displayOrderScreen() {
+    private void displayOrderScreen() {
         boolean running = true;
         while (running) {
             System.out.println(order);
@@ -69,7 +69,7 @@ public class UserInterface {
         }
     }
 
-    public Sandwich processAddSandwich() {
+    private Sandwich processAddSandwich() {
         BreadType breadType = selectBreadType();
 
         SandwichSize sandwichSize = selectSandwichSize();
@@ -120,7 +120,7 @@ public class UserInterface {
         return sandwich;
     }
 
-    public BreadType selectBreadType() {
+    private BreadType selectBreadType() {
         while (true) {
             System.out.println("\n=== Bread Type ===");
             System.out.println("1. White (recommended)");
@@ -148,7 +148,7 @@ public class UserInterface {
         }
     }
 
-    public SandwichSize selectSandwichSize() {
+    private SandwichSize selectSandwichSize() {
         while (true) {
             System.out.println("\n=== Bread Type ===");
             System.out.println("1. 4 Inch");
@@ -172,7 +172,7 @@ public class UserInterface {
         }
     }
 
-    public MeatType selectMeat() {
+    private MeatType selectMeat() {
         while (true) {
             System.out.println("\n=== Meat Selection ===");
             System.out.println("1. Steak");
@@ -212,7 +212,7 @@ public class UserInterface {
         }
     }
 
-    public CheeseType selectCheese() {
+    private CheeseType selectCheese() {
         while (true) {
             System.out.println("\n=== Cheese Selection ===");
             System.out.println("1. American");
@@ -244,7 +244,7 @@ public class UserInterface {
         }
     }
 
-    public RegularToppingType selectRegularToppings() {
+    private RegularToppingType selectRegularToppings() {
         while (true) {
             System.out.println("\n=== Topping Selection ===");
             System.out.println("1. Lettuce");
@@ -296,7 +296,7 @@ public class UserInterface {
         }
     }
 
-    public SauceType selectSauce() {
+    private SauceType selectSauce() {
         while (true) {
             System.out.println("\n=== Sauce Selection ===");
             System.out.println("1. Mayo");
@@ -336,7 +336,7 @@ public class UserInterface {
         }
     }
 
-    public SideType selectSide() {
+    private SideType selectSide() {
         while (true) {
             System.out.println("\n=== Side Selection ===");
             System.out.println("1. Au Jus");
@@ -360,7 +360,7 @@ public class UserInterface {
         }
     }
 
-    public void toastSandwich(Sandwich sandwich) {
+    private void toastSandwich(Sandwich sandwich) {
         System.out.println("\n=== Toast Sandwich ===");
         System.out.println("1. Yes");
         System.out.println("2. No");
