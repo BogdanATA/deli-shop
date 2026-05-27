@@ -63,7 +63,9 @@ public class UserInterface {
                 }
                 case 2 -> {
                     Drink drink = processAddDrink();
-                    order.addItem(drink);
+                    if (drink != null) {
+                        order.addItem(drink);
+                    }
                 }
                 case 3 -> {
                     Chips chips = processAddChips();
@@ -425,7 +427,9 @@ public class UserInterface {
      * --------------------------------------------------------------*/
     private Drink processAddDrink() {
         DrinkFlavor drinkFlavor = selectDrinkFlavor();
-
+        if (drinkFlavor == null) {
+            return null;
+        }
         DrinkSize drinkSize = selectDrinkSize();
 
         Drink drink = new Drink(drinkFlavor, drinkSize);
@@ -439,6 +443,7 @@ public class UserInterface {
             System.out.println("1. Coke");
             System.out.println("2. Diet Coke");
             System.out.println("3. Sprite");
+            System.out.println("0. Go Back");
 
             int choice = readInt("Select your drink flavor: ");
 
@@ -451,6 +456,9 @@ public class UserInterface {
                 }
                 case 3 -> {
                     return DrinkFlavor.SPRITE;
+                }
+                case 0 -> {
+                    return null;
                 }
                 default -> System.out.println("Invalid Choice");
             }
