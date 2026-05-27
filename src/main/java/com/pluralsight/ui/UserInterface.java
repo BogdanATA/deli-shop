@@ -1,6 +1,7 @@
 package com.pluralsight.ui;
 
 import com.pluralsight.enums.*;
+import com.pluralsight.models.Drink;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
 import com.pluralsight.models.toppings.*;
@@ -57,7 +58,10 @@ public class UserInterface {
                     Sandwich sandwich = processAddSandwich();
                     order.addItem(sandwich);
                 }
-                case 2 -> System.out.println("Add Drink");
+                case 2 -> {
+                    Drink drink = processAddDrink();
+                    order.addItem(drink);
+                }
                 case 3 -> System.out.println("Add Chips");
                 case 4 -> System.out.println("Checkout");
                 case 0 -> {
@@ -119,7 +123,9 @@ public class UserInterface {
 
         return sandwich;
     }
-
+    /*---------------------------------------------------------------
+     *                       SANDWICH
+     * --------------------------------------------------------------*/
     private BreadType selectBreadType() {
         while (true) {
             System.out.println("\n=== Bread Type ===");
@@ -369,6 +375,67 @@ public class UserInterface {
 
         if (choice == 1) {
             sandwich.setToasted(true);
+        }
+    }
+
+    /*---------------------------------------------------------------
+     *                       DRINK
+     * --------------------------------------------------------------*/
+    private Drink processAddDrink() {
+        DrinkFlavor drinkFlavor = selectDrinkFlavor();
+
+        DrinkSize drinkSize = selectDrinkSize();
+
+        Drink drink = new Drink(drinkFlavor, drinkSize);
+
+        return drink;
+    }
+
+    private DrinkFlavor selectDrinkFlavor() {
+        while (true) {
+            System.out.println("\n=== Drink Flavor Selection ===");
+            System.out.println("1. Coke");
+            System.out.println("2. Diet Coke");
+            System.out.println("3. Sprite");
+
+            int choice = readInt("Select your drink flavor: ");
+
+            switch (choice) {
+                case 1 -> {
+                    return DrinkFlavor.COKE;
+                }
+                case 2 -> {
+                    return DrinkFlavor.DIET_COKE;
+                }
+                case 3 -> {
+                    return DrinkFlavor.SPRITE;
+                }
+                default -> System.out.println("Invalid Choice");
+            }
+        }
+    }
+
+    private DrinkSize selectDrinkSize() {
+        while (true) {
+            System.out.println("\n=== Drink Size Selection ===");
+            System.out.println("1. Small");
+            System.out.println("2. Medium");
+            System.out.println("3. Large");
+
+            int choice = readInt("Select your drink size: ");
+
+            switch (choice) {
+                case 1 -> {
+                    return DrinkSize.SMALL;
+                }
+                case 2 -> {
+                    return DrinkSize.MEDIUM;
+                }
+                case 3 -> {
+                    return DrinkSize.LARGE;
+                }
+                default -> System.out.println("Invalid Choice");
+            }
         }
     }
 

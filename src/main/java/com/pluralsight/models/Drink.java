@@ -29,4 +29,12 @@ public class Drink implements IPriceable{
         }
         return drinkCost;
     }
+
+    @Override
+    public String toString() {
+        return "\nDrink{" +
+                "flavor=" + flavor +
+                ", drinkSize=" + drinkSize +
+                '}';
+    }
 }
