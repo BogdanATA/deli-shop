@@ -8,7 +8,6 @@ import com.pluralsight.models.Sandwich;
 import com.pluralsight.models.toppings.*;
 import com.pluralsight.services.FileManager;
 
-import java.io.File;
 import java.util.Scanner;
 
 
@@ -81,6 +80,9 @@ public class UserInterface {
         }
     }
 
+    /*---------------------------------------------------------------
+     *                       SANDWICH
+     * --------------------------------------------------------------*/
     private Sandwich processAddSandwich() {
         BreadType breadType = selectBreadType();
 
@@ -131,9 +133,7 @@ public class UserInterface {
 
         return sandwich;
     }
-    /*---------------------------------------------------------------
-     *                       SANDWICH
-     * --------------------------------------------------------------*/
+
     private BreadType selectBreadType() {
         while (true) {
             System.out.println("\n=== Bread Type ===");

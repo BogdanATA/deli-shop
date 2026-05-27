@@ -26,8 +26,10 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "items=" + items +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        for (IPriceable item: items) {
+            sb.append(item.getName()).append("\n");
+        }
+        return sb.toString();
     }
 }

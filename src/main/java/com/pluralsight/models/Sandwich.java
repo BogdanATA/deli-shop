@@ -53,6 +53,11 @@ public class Sandwich implements IPriceable{
     }
 
     @Override
+    public String getName() {
+        return sandwhichSize.getInches() + "\" " + breadType + " Sandwich";
+    }
+
+    @Override
     public double getPrice() {
         double breadPrice = 0;
         switch(sandwhichSize){

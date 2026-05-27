@@ -3,14 +3,14 @@ package com.pluralsight.models;
 import com.pluralsight.enums.ChipType;
 
 public class Chips implements IPriceable{
-    private ChipType name;
+    private ChipType chipType;
 
-    public Chips(ChipType name) {
-        this.name = name;
+    public Chips(ChipType chipType) {
+        this.chipType = chipType;
     }
 
-    public ChipType getName() {
-        return name;
+    public ChipType getChipType() {
+        return chipType;
     }
 
     @Override
@@ -19,7 +19,12 @@ public class Chips implements IPriceable{
     }
 
     @Override
+    public String getName() {
+        return chipType.toString();
+    }
+
+    @Override
     public String toString() {
-        return name + " Chips - $" + String.format("%.2f", getPrice());
+        return chipType + " Chips - $" + String.format("%.2f", getPrice());
     }
 }

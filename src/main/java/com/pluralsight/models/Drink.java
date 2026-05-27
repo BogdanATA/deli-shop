@@ -21,6 +21,11 @@ public class Drink implements IPriceable{
     }
 
     @Override
+    public String getName() {
+        return flavor.toString();
+    }
+
+    @Override
     public double getPrice() {
         double drinkCost = 0;
         switch (drinkSize) {
