@@ -466,6 +466,9 @@ public class UserInterface {
      * --------------------------------------------------------------*/
     private Chips processAddChips() {
         ChipType chipsType = selectChips();
+        if (chipsType == null) {
+            return null;
+        }
         Chips chips = new Chips(chipsType);
         return chips;
     }
