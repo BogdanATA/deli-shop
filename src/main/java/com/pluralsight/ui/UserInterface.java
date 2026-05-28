@@ -117,24 +117,24 @@ public class UserInterface {
         Sandwich sandwich = new Sandwich(breadType, sandwichSize);
         //Meat
         int meatCount = 0;
-        while (meatCount < 3) {
+        while (meatCount < 2) {
             MeatType meatType = selectMeat();
             if (meatType == null) break;
             sandwich.addTopping(new Meat(meatType));
             meatCount++;
-            if (meatCount == 3) {
-                System.out.println(YELLOW + "Max of 3 Meats reached!" + RESET);
+            if (meatCount == 2) {
+                System.out.println(YELLOW + "\nMax of 2 Meats reached!" + RESET);
             }
         }
         //Cheese
         int cheeseCount= 0;
-        while (cheeseCount < 3) {
+        while (cheeseCount < 2) {
             CheeseType cheeseType = selectCheese();
             if (cheeseType == null) break;
             sandwich.addTopping(new Cheese(cheeseType));
             cheeseCount++;
-            if (cheeseCount == 3) {
-                System.out.println(YELLOW + "Max of 3 Cheeses reached!" + RESET);
+            if (cheeseCount == 2) {
+                System.out.println(YELLOW + "\nMax of 2 Cheeses reached!" + RESET);
             }
         }
         //Toppings
@@ -145,7 +145,7 @@ public class UserInterface {
             sandwich.addTopping(new RegularTopping(toppingType));
             toppingCount++;
             if (toppingCount == 6) {
-                System.out.println(YELLOW + "Max of 6 Toppings reached!" + RESET);
+                System.out.println(YELLOW + "\nMax of 6 Toppings reached!" + RESET);
             }
         }
         //Sauce
@@ -156,7 +156,7 @@ public class UserInterface {
             sandwich.addTopping(new Sauce(sauceType));
             sauceCount++;
             if (sauceCount == 3) {
-                System.out.println(YELLOW + "Max of 3 Sauces reached!" + RESET);
+                System.out.println(YELLOW + "\nMax of 3 Sauces reached!" + RESET);
             }
         }
         //Side
@@ -167,7 +167,7 @@ public class UserInterface {
             sandwich.addTopping(new Side(sideType));
             sideCount++;
             if(sideCount == 2) {
-                System.out.println(YELLOW + "Max of 2 Sides reached!" + RESET);
+                System.out.println(YELLOW + "\nMax of 2 Sides reached!" + RESET);
             }
         }
         toastSandwich(sandwich);
@@ -231,7 +231,7 @@ public class UserInterface {
     private MeatType selectMeat() {
         while (true) {
             System.out.println("\n" + CYAN + "=== Meat Selection ===" + RESET);
-            System.out.println(YELLOW + "Maximum of 3 Meats" + RESET);
+            System.out.println(YELLOW + "Maximum of 2 Meats" + RESET);
             System.out.println("1. Steak");
             System.out.println("2. Ham");
             System.out.println("3. Salami");
@@ -263,7 +263,7 @@ public class UserInterface {
     private CheeseType selectCheese() {
         while (true) {
             System.out.println("\n" + CYAN + "=== Cheese Selection ===" + RESET);
-            System.out.println(YELLOW + "Maximum of 3 Cheeses" + RESET);
+            System.out.println(YELLOW + "Maximum of 2 Cheeses" + RESET);
             System.out.println("1. American");
             System.out.println("2. Provolone");
             System.out.println("3. Cheddar");
