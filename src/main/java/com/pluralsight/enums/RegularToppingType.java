@@ -1,6 +1,18 @@
 package com.pluralsight.enums;
 
 public enum RegularToppingType {
-    LETTUCE, PEPPERS, ONIONS, TOMATOES, JALAPENOS, CUCUMBERS, PICKLES
-    , GUACAMOLE, MUSHROOMS;
+    LETTUCE("Lettuce"), PEPPERS("Peppers"), ONIONS("Onions"), TOMATOES("Tomatoes"),
+    JALAPENOS("Jalapenos"), CUCUMBERS("Cucumbers"), PICKLES("Pickles"),
+    GUACAMOLE("Guacamole"), MUSHROOMS("Mushrooms");
+
+    private final String displayName;
+
+    RegularToppingType(String displayName) {
+        this.displayName = displayName;
+    }
+
+    @Override
+    public String toString() {
+        return displayName;
+    }
 }
