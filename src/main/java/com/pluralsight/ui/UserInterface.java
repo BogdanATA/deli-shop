@@ -63,6 +63,7 @@ public class UserInterface {
             System.out.println("2. Add Drink");
             System.out.println("3. Add Chips");
             System.out.println("4. Checkout");
+            System.out.println("5. Remove Item");
             System.out.println("0. Cancel Order");
 
             int choice = readInt("Enter your choice: ");
@@ -91,6 +92,7 @@ public class UserInterface {
                         running = displayCheckoutScreen();
                     }
                 }
+                case 5 -> removeItemFromOrder();
                 case 0 -> {
                     System.out.println("Order Cancelled");
                     running = false;
@@ -539,6 +541,28 @@ public class UserInterface {
                 }
                 default -> System.out.println(YELLOW + "Invalid choice." + RESET);
             }
+        }
+    }
+
+    private void removeItemFromOrder() {
+        if (order.getItems().isEmpty()) {
+            System.out.println("\nNo items in order");
+        }
+
+        System.out.println("\n=== Remove Item ===");
+        for (int i = 0; i < order.getItems().size(); i++) {
+            System.out.println("[" + (i + 1) + "]" + order.getItems().get(i).getName());
+        }
+        System.out.println("\nEnter item number to remove or 0 to cancel");
+        int choice = readInt("Enter item number to remove: ");
+
+        if (choice == 0) return;
+
+        if (choice < 1 || choice > order.getItems().size()) {
+            System.out.println("Invalid choice");
+        } else {
+            System.out.println("Item Removed");
+            order.getItems().remove(choice -1);
         }
     }
 
