@@ -47,6 +47,7 @@ public class UserInterface {
                 default -> System.out.println(YELLOW + "Invalid choice." + RESET);
             }
         }
+        scanner.close();
     }
 
     /**
@@ -97,7 +98,6 @@ public class UserInterface {
                 default -> System.out.println(YELLOW + "Invalid Input" + RESET);
             }
         }
-        scanner.close();
     }
 
     /*---------------------------------------------------------------
@@ -488,16 +488,16 @@ public class UserInterface {
         while (true) {
             System.out.println("\n" + CYAN + "=== Chips Selection ===" + RESET);
             System.out.println("1. Lays Plain");
-            System.out.println("2. Sun Cheddar");
-            System.out.println("3. Sun Salsa");
+            System.out.println("2. Sun Chips Cheddar");
+            System.out.println("3. Sun Chips Salsa");
             System.out.println("0. Go Back");
 
             int choice = readInt("Select your Chips: ");
 
             switch (choice) {
                 case 1 -> { return ChipType.LAYS_PLAIN; }
-                case 2 -> { return ChipType.SUN_CHEDDAR; }
-                case 3 -> { return ChipType.SUN_SALSA; }
+                case 2 -> { return ChipType.SUN_CHIPS_CHEDDAR; }
+                case 3 -> { return ChipType.SUN_CHIPS_SALSA; }
                 case 0 -> { return null; }
                 default -> System.out.println(YELLOW + "Invalid Choice" + RESET);
             }
