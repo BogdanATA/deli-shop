@@ -54,7 +54,8 @@ public class Sandwich implements IPriceable{
 
     @Override
     public String getName() {
-        return sandwhichSize.getInches() + "\" " + breadType + " Sandwich";
+        return sandwhichSize.getInches() + "\" " + breadType + " Sandwich"
+                + (isToasted ? " [Toasted]" : "");
     }
 
     @Override

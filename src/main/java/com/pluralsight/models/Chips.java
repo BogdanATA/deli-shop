@@ -20,7 +20,7 @@ public class Chips implements IPriceable{
 
     @Override
     public String getName() {
-        return chipType.toString();
+        return chipType + " Chips";
     }
 
     @Override

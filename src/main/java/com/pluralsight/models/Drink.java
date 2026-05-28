@@ -22,7 +22,7 @@ public class Drink implements IPriceable{
 
     @Override
     public String getName() {
-        return flavor.toString();
+        return flavor + " - " + drinkSize;
     }
 
     @Override
