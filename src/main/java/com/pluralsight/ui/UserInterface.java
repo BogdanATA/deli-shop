@@ -91,6 +91,7 @@ public class UserInterface {
                 default -> System.out.println(YELLOW + "Invalid Input" + RESET);
             }
         }
+        scanner.close();
     }
 
     /*---------------------------------------------------------------
