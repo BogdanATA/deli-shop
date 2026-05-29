@@ -41,8 +41,14 @@ public class Sandwich implements IPriceable{
         return toppings;
     }
 
+    /**
+     * Adds a topping to the sandwich, and sets isExtra to true if it already exists
+     *
+     * @param topping the Topping to add
+     */
     public void addTopping(Topping topping) {
-        if (topping instanceof PremiumTopping premiumTopping) {
+        if (topping instanceof PremiumTopping) {
+            PremiumTopping premiumTopping = (PremiumTopping) topping;
             boolean alreadyExists = toppings.stream()
                     .anyMatch(t -> t.getName().equals(topping.getName()));
             if (alreadyExists) {
@@ -52,12 +58,22 @@ public class Sandwich implements IPriceable{
         toppings.add(topping);
     }
 
+    /**
+     * Returns a simple display name of this sandwich to print out under current order
+     *
+     * @return the name as a String
+     */
     @Override
     public String getName() {
         return sandwhichSize.getInches() + "\" " + breadType + " Sandwich"
                 + (isToasted ? " [Toasted]" : "");
     }
 
+    /**
+     * Calculates total price of the sandwich
+     *
+     * @return the total price as a double
+     */
     @Override
     public double getPrice() {
         double breadPrice = 0;
@@ -81,8 +97,11 @@ public class Sandwich implements IPriceable{
         sb.append("\n  Toppings:");
         for (Topping t : toppings) {
             sb.append("\n    - ").append(t.getName());
-            if (t instanceof PremiumTopping premiumTopping && premiumTopping.isExtra()) {
-                sb.append(" (extra)");
+            if (t instanceof PremiumTopping) {
+                PremiumTopping premiumTopping = (PremiumTopping) t;
+                if (premiumTopping.isExtra()) {
+                    sb.append(" (extra)");
+                }
             }
             double price = t.getPrice(sandwhichSize);
             if (price > 0) sb.append(" - $").append(String.format("%.2f", price));

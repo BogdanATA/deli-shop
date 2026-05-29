@@ -20,6 +20,11 @@ public class Drink implements IPriceable{
         return drinkSize;
     }
 
+    /**
+     * Returns a simple display name of this drink to print out under current order
+     *
+     * @return the name as a String
+     */
     @Override
     public String getName() {
         return flavor + " - " + drinkSize;

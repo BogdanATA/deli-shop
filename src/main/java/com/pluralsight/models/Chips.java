@@ -18,6 +18,11 @@ public class Chips implements IPriceable{
         return 1.50;
     }
 
+    /**
+     * Returns a simple display name of these chips to print out under current order
+     *
+     * @return the name as a String
+     */
     @Override
     public String getName() {
         return chipType + " Chips";

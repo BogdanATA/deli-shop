@@ -18,6 +18,11 @@ public class Order {
         return items;
     }
 
+    /**
+     * Calculates the total price of all items in the order
+     *
+     * @return the total price as a double
+     */
     public double getTotalPrice() {
         return items.stream()
                 .mapToDouble(item -> item.getPrice())
